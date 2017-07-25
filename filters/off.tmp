@@ -1,0 +1,55 @@
+/*
+ * -------------------------
+ * ---- 单点访问控制 -----
+ */
+
+////rate describe the frequency of request
+//type rate struct {
+//	start time.Time
+//	times int
+//}
+//
+////Levone the entrance of this go file
+//func Levone(ctx *context.Context) {
+//	//get client ip address
+//	ip := ctx.Input.IP()
+//
+//	//fmt.Println(ctx.Input.GetData(ip))
+//
+//	//determine whether the ip is in data
+//	if v := ctx.Input.GetData(ip); v == nil {
+//
+//		//fmt.Println("set data")
+//
+//		//new client
+//		ctx.Input.SetData(ip, rate{
+//			start: time.Now(),
+//			times: 0,
+//		})
+//
+//		//fmt.Println(ctx.Input.GetData(ip))
+//
+//	}else {
+//		client_rate := ctx.Input.GetData(ip).(rate)
+//		visit_times := client_rate.times
+//		start_time := client_rate.start
+//		cur_time := time.Now()
+//		fmt.Println(start_time.String() + ":" + strconv.Itoa(visit_times))
+//		if time_interval := cur_time.Unix() - start_time.Unix(); time_interval >= 60 { //reset
+//			ctx.Input.SetData(ip, rate{
+//				start: time.Now(),
+//				times: 0,
+//			})
+//		}else { //deal with times
+//			if visit_times >= 10 {
+//				ctx.Redirect(302, "/")
+//			}else {
+//				ctx.Input.SetData(ip, rate{
+//					start: start_time,
+//					times: visit_times + 1,
+//				})
+//			}
+//		}
+//	}
+//}
+
